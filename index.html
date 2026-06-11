@@ -4,14 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aram Dentist | Modern Dental Care</title>
+<title>Aram Dentist | Professional Dental Care</title>
 
-<!-- Google Font -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 /* =========================
-   GLOBAL STYLES
+   RESET & GLOBAL STYLES
 ========================= */
 *{
     margin:0;
@@ -19,11 +20,15 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Poppins',sans-serif;
-    line-height:1.6;
-    color:#1f2937;
     background:#ffffff;
+    color:#1e293b;
+    line-height:1.6;
 }
 
 .container{
@@ -37,11 +42,56 @@ section{
 }
 
 h1,h2,h3{
-    margin-bottom:20px;
+    font-weight:700;
 }
 
 p{
-    color:#6b7280;
+    color:#64748b;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.nav-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#0ea5e9;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#334155;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#0ea5e9;
 }
 
 /* =========================
@@ -49,13 +99,12 @@ p{
 ========================= */
 .btn{
     display:inline-block;
-    padding:14px 32px;
     background:#0ea5e9;
     color:#fff;
-    text-decoration:none;
+    padding:14px 32px;
     border-radius:50px;
     font-weight:600;
-    transition:0.3s ease;
+    transition:0.3s;
 }
 
 .btn:hover{
@@ -71,6 +120,7 @@ p{
     display:flex;
     align-items:center;
     background:linear-gradient(135deg,#f0f9ff,#ffffff);
+    padding-top:100px;
 }
 
 .hero-content{
@@ -84,11 +134,12 @@ p{
     font-size:3.8rem;
     line-height:1.1;
     color:#0f172a;
+    margin-bottom:20px;
 }
 
 .hero-text p{
-    margin:25px 0;
     font-size:1.1rem;
+    margin-bottom:30px;
 }
 
 .hero-image{
@@ -96,17 +147,17 @@ p{
     justify-content:center;
 }
 
-.hero-card{
-    width:350px;
-    height:350px;
+.hero-image img{
+    width:100%;
+    max-width:500px;
     border-radius:30px;
-    background:linear-gradient(135deg,#0ea5e9,#38bdf8);
-    box-shadow:0 20px 50px rgba(14,165,233,0.25);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:7rem;
+    object-fit:cover;
+    box-shadow:0 20px 50px rgba(0,0,0,0.15);
+    transition:0.4s;
+}
+
+.hero-image img:hover{
+    transform:translateY(-8px);
 }
 
 /* =========================
@@ -116,19 +167,18 @@ p{
     background:#ffffff;
 }
 
-.about-content{
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    color:#0f172a;
+    margin-bottom:20px;
+}
+
+.section-text{
     text-align:center;
     max-width:800px;
     margin:auto;
-}
-
-.section-title{
-    font-size:2.3rem;
-    color:#0f172a;
-}
-
-.section-subtitle{
-    margin-top:10px;
+    font-size:1.05rem;
 }
 
 /* =========================
@@ -146,21 +196,21 @@ p{
 }
 
 .feature-card{
-    background:white;
+    background:#fff;
     padding:35px;
     border-radius:20px;
     text-align:center;
-    transition:0.3s ease;
     box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    transition:0.3s;
 }
 
 .feature-card:hover{
     transform:translateY(-8px);
-    box-shadow:0 20px 35px rgba(0,0,0,0.08);
+    box-shadow:0 20px 40px rgba(0,0,0,0.08);
 }
 
 .feature-icon{
-    font-size:2.5rem;
+    font-size:3rem;
     margin-bottom:15px;
 }
 
@@ -168,16 +218,17 @@ p{
    CONTACT SECTION
 ========================= */
 .contact{
-    text-align:center;
+    background:#ffffff;
 }
 
 .contact-box{
-    max-width:700px;
+    max-width:750px;
     margin:auto;
+    background:#fff;
     padding:50px;
-    background:white;
     border-radius:25px;
     box-shadow:0 15px 35px rgba(0,0,0,0.08);
+    text-align:center;
 }
 
 .contact-info{
@@ -198,6 +249,10 @@ footer{
     padding:25px;
 }
 
+footer p{
+    color:#cbd5e1;
+}
+
 /* =========================
    RESPONSIVE DESIGN
 ========================= */
@@ -212,130 +267,161 @@ footer{
         font-size:2.8rem;
     }
 
-    .hero-card{
-        width:280px;
-        height:280px;
+    .nav-links{
+        gap:15px;
+        font-size:14px;
     }
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
+
+    .nav-container{
+        flex-direction:column;
+        gap:10px;
+    }
 
     .hero-text h1{
         font-size:2.2rem;
     }
 
     .contact-box{
-        padding:35px 25px;
+        padding:35px 20px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
     }
 }
+
 </style>
 </head>
 <body>
 
 <!-- =========================
+     NAVIGATION
+========================= -->
+<nav>
+    <div class="container nav-container">
+        <div class="logo">🦷 Aram Dentist</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#features">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- =========================
      HERO SECTION
 ========================= -->
-<section class="hero">
+<section class="hero" id="home">
+
     <div class="container hero-content">
 
         <div class="hero-text">
-            <h1>Aram Dentist</h1>
+            <h1>Healthy Smiles Start Here</h1>
+
             <p>
-                Modern dental care designed for your comfort.
-                Experience healthy smiles, advanced treatments,
-                and professional care you can trust.
+                Professional dental care with modern technology,
+                personalized treatment plans, and a commitment to
+                helping you achieve a confident smile.
             </p>
 
             <a href="#contact" class="btn">Book Appointment</a>
         </div>
 
         <div class="hero-image">
-            <div class="hero-card">
-                🦷
-            </div>
+            <img
+            src="https://cdn.shopify.com/s/files/1/0789/6773/4504/files/dentist_photo.jpg?v=1781209548"
+            alt="Aram Dentist">
         </div>
 
     </div>
+
 </section>
 
 <!-- =========================
      ABOUT SECTION
 ========================= -->
-<section class="about">
+<section class="about" id="about">
+
     <div class="container">
 
-        <div class="about-content">
-            <h2 class="section-title">About Aram Dentist</h2>
+        <h2 class="section-title">About Aram Dentist</h2>
 
-            <p class="section-subtitle">
-                We provide high-quality dental services with a focus
-                on comfort, precision, and patient satisfaction.
-                Our modern clinic combines advanced technology with
-                personalized care to help every patient achieve
-                a healthy and confident smile.
-            </p>
-        </div>
+        <p class="section-text">
+            At Aram Dentist, we combine expertise, compassion,
+            and advanced dental technology to provide exceptional
+            oral healthcare. Whether you need preventive care,
+            cosmetic dentistry, or restorative treatments,
+            our goal is to keep your smile healthy and beautiful.
+        </p>
 
     </div>
+
 </section>
 
 <!-- =========================
-     FEATURES SECTION
+     FEATURES / SERVICES
 ========================= -->
-<section class="features">
+<section class="features" id="features">
+
     <div class="container">
 
-        <h2 class="section-title" style="text-align:center;">
-            Why Choose Us
-        </h2>
+        <h2 class="section-title">Why Patients Choose Us</h2>
 
         <div class="features-grid">
 
             <div class="feature-card">
                 <div class="feature-icon">✨</div>
-                <h3>Modern Equipment</h3>
+                <h3>Teeth Whitening</h3>
                 <p>
-                    State-of-the-art technology for accurate diagnosis
-                    and effective treatment.
+                    Brighten your smile with safe and effective
+                    professional whitening treatments.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🦷</div>
+                <h3>Dental Implants</h3>
+                <p>
+                    Restore missing teeth with durable,
+                    natural-looking implant solutions.
                 </p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">😊</div>
-                <h3>Comfort First</h3>
+                <h3>Cosmetic Dentistry</h3>
                 <p>
-                    Friendly environment focused on making every visit
-                    stress-free and comfortable.
+                    Improve appearance and confidence with
+                    personalized cosmetic treatments.
                 </p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">🛡️</div>
-                <h3>Trusted Care</h3>
+                <h3>Preventive Care</h3>
                 <p>
-                    Professional dental services delivered with care,
-                    precision, and experience.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">⭐</div>
-                <h3>Beautiful Smiles</h3>
-                <p>
-                    Cosmetic and restorative solutions designed to
-                    enhance your confidence.
+                    Regular checkups and cleanings to
+                    maintain long-term oral health.
                 </p>
             </div>
 
         </div>
 
     </div>
+
 </section>
 
 <!-- =========================
      CONTACT SECTION
 ========================= -->
 <section class="contact" id="contact">
+
     <div class="container">
 
         <div class="contact-box">
@@ -343,33 +429,35 @@ footer{
             <h2 class="section-title">Contact Us</h2>
 
             <p>
-                Ready to improve your smile?
-                Schedule your appointment today.
+                Schedule your appointment today and take the first
+                step toward a healthier, brighter smile.
             </p>
 
             <div class="contact-info">
-                <p><strong>📍 Address:</strong> Your Clinic Address</p>
+                <p><strong>📍 Address:</strong> Yerevan, Armenia</p>
                 <p><strong>📞 Phone:</strong> +374 XX XXX XXX</p>
                 <p><strong>✉ Email:</strong> info@aramdentist.com</p>
             </div>
 
             <br>
 
-            <a href="#" class="btn">Get Started</a>
+            <a href="mailto:info@aramdentist.com" class="btn">
+                Contact Now
+            </a>
 
         </div>
 
     </div>
+
 </section>
 
 <!-- =========================
      FOOTER
 ========================= -->
 <footer>
-    <p>© 2025 Aram Dentist. All Rights Reserved.</p>
+    <p>© 2026 Aram Dentist. All Rights Reserved.</p>
 </footer>
 
 </body>
 </html>
 ```
-
